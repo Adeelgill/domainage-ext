@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Domain Age Finder By T9",
+  "version": "0.01",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["https://whois-api.test.dev/*"],
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Domain Age Finder"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/*"],
+      "js": ["contentv3.js"],
+      "css": ["style.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/keywordlabslogo.svg", "images/keywordlabs_dashboard.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
